@@ -1,0 +1,11 @@
+[user]
+	name = Kyle Kelley
+	email = kyle.kelley@rackspace.com
+[core]
+	editor = vim
+    excludesfile = ~/.gitignore_global
+[color]
+	diff = always
+	ui = true
+[push]
+	default = simple
