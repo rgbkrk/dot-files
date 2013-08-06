@@ -138,5 +138,4 @@ alias git=hub
 
 echo "🐍"
 
-
-
+export PATH=~/.dot-files/bin:$PATH
