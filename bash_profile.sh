@@ -134,4 +134,9 @@ else \
 echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
 
+alias git=hub
+
+echo "🐍"
+
+
 
