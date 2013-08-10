@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
+# PATH first, conquer later
+
+export PATH="$HOME/.dot-files/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+
 # Pull git completion from where brew installs it
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
-export PATH=/usr/local/bin:/usr/bin:$PATH
-
+# Source the right virtualenv stuff
 source /usr/local/bin/virtualenvwrapper.sh
 
 ## RVM
@@ -14,6 +19,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 export PATH="/opt/chef/embedded/bin:$PATH"
 export EDITOR=/usr/local/bin/vim
 
+export CLICOLOR=1
+export LSCOLORS=fxGxBxDxcxegedabagacdx
 
 ##### RBENV ###
 ### Use Homebrew's directories rather than ~/.rbenv
@@ -138,4 +145,3 @@ alias git=hub
 
 echo "🐍"
 
-export PATH=~/.dot-files/bin:$PATH
