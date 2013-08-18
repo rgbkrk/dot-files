@@ -31,7 +31,16 @@ export LSCOLORS=fxGxBxDxcxegedabagacdx
 alias gvij="gvim -c 'Journal'"
 alias vij="vim -c 'Journal'"
 
-export HISTFILESIZE=5000
+# Pump it up
+export HISTSIZE=500000
+export HISTFILESIZE=500000
+
+HISTFILESIZE=400000000
+HISTSIZE=10000
+PROMPT_COMMAND="history -a"
+export HISTSIZE PROMPT_COMMAND
+shopt -s histappend
+
 
 # Customize BASH PS1 prompt to show current GIT repository and branch.
 # by Mike Stewart - http://MediaDoneRight.com
@@ -142,6 +151,8 @@ echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
 
 alias git=hub
+
+
 
 echo "🐍"
 
