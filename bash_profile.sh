@@ -4,6 +4,7 @@
 
 export PATH="$HOME/.dot-files/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="$PATH:/opt/chef/embedded/bin"
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 
 # Pull git completion from where brew installs it
@@ -16,7 +17,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 ## RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-export PATH="/opt/chef/embedded/bin:$PATH"
 export EDITOR=/usr/local/bin/vim
 
 export CLICOLOR=1

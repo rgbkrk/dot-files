@@ -2,6 +2,9 @@
 *.swp
 *.swo
 
+# Vagrant stuff
+.vagrant
+
 # Compiled source #
 ###################
 *.com
