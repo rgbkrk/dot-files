@@ -5,12 +5,20 @@
 export PATH="$HOME/.dot-files/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:/opt/chef/embedded/bin"
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+
+# Pump it up
+export HISTSIZE=500000
+export HISTFILESIZE=500000
+shopt -s histappend
+
+export CLICOLOR=1
+export LSCOLORS=fxGxBxDxcxegedabagacdx
 
 # Pull git completion from where brew installs it
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 # Source the right virtualenv stuff
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -18,29 +26,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export EDITOR=/usr/local/bin/vim
-
-export CLICOLOR=1
-export LSCOLORS=fxGxBxDxcxegedabagacdx
-
-##### RBENV ###
-### Use Homebrew's directories rather than ~/.rbenv
-##export RBENV_ROOT=/usr/local/var/rbenv
-### Enable shims and autocompletion
-##if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
 alias gvij="gvim -c 'Journal'"
 alias vij="vim -c 'Journal'"
-
-# Pump it up
-export HISTSIZE=500000
-export HISTFILESIZE=500000
-
-HISTFILESIZE=400000000
-HISTSIZE=10000
-PROMPT_COMMAND="history -a"
-export HISTSIZE PROMPT_COMMAND
-shopt -s histappend
-
 
 # Customize BASH PS1 prompt to show current GIT repository and branch.
 # by Mike Stewart - http://MediaDoneRight.com
@@ -131,28 +118,24 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-
-# This PS1 snippet was adopted from code for MAC/BSD I saw from: http://allancraig.net/index.php?option=com_content&view=article&id=108:ps1-export-command-for-git&catid=45:general&Itemid=96
-# I tweaked it to work on UBUNTU 11.04 & 11.10 plus made it mo' better
-
 export PS1=$IBlack$Time24h$Color_Off'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
-echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
-if [ "$?" -eq "0" ]; then \
-# @4 - Clean repository - nothing to commit
-echo "'$Green'"$(__git_ps1 " (%s)"); \
+    echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+    if [ "$?" -eq "0" ]; then \
+        # @4 - Clean repository - nothing to commit
+        echo "'$Green'"$(__git_ps1 " (%s)"); \
+    else \
+        # @5 - Changes to working tree
+        echo "'$IRed'"$(__git_ps1 " {%s}"); \
+    fi) '$BYellow$PathShort$Color_Off'\$ "; \
 else \
-# @5 - Changes to working tree
-echo "'$IRed'"$(__git_ps1 " {%s}"); \
-fi) '$BYellow$PathShort$Color_Off'\$ "; \
-else \
-# @2 - Prompt when not in GIT repo
-echo " '$Yellow$PathShort$Color_Off'\$ "; \
+    # @2 - Prompt when not in GIT repo
+    echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
 
 alias git=hub
 
+export picon="🐍"
 
-
-echo "🐍"
+echo $picon
 
