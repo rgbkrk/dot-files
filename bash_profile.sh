@@ -139,3 +139,5 @@ export picon="🐍"
 
 echo $picon
 
+
+[[ -s /Users/kyle6475/.nvm/nvm.sh ]] && . /Users/kyle6475/.nvm/nvm.sh # This loads NVM
