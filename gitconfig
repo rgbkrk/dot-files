@@ -9,3 +9,5 @@
 	ui = true
 [push]
 	default = simple
+[alias]
+	fuckit = commit -a -m \"fuck it\"
